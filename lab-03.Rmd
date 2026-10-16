@@ -30,32 +30,23 @@ jan_feb_flights <- flights %>%
 
 Explore the columns in `jan_feb_flights`.
 Which are numeric, which are categorical/text/factor?  
-Are there missing values?
+Are there missing values? 
 
 ```{r}
 # explore the types of the columns in jan_feb_flights
 glimpse(jan_feb_flights)
-
-```
-
-```{r}
-# explore the types of the columns in jan_feb_flights
-
-jan_feb_flights  %>%
-  summarise_all(typeof) %>%
-  pivot_longer(everything(),names_to = "column", values_to = "type")
+jan_feb_flights %>% select(where(is.integer)) %>% names()
 ```
 
 ```{r}
 # which columns are integer
-jan_feb_flights <- flights %>%
-  
+"year , month , day , dep_time , sched_dep_time , arr_time , sched_arr_time , flight"
 
 # which columns are double
-
+"dep_delay , arr_delay , air_time , distance , hour , minute"
 
 # which columns are character
-
+"carrier , tailnum , origin , dest"
 
 ```
 
