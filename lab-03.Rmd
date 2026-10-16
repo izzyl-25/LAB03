@@ -35,18 +35,27 @@ Are there missing values?
 ```{r}
 # explore the types of the columns in jan_feb_flights
 glimpse(jan_feb_flights)
-jan_feb_flights %>% select(where(is.integer)) %>% names()
+
+```
+
+```{r}
+# explore the types of the columns in jan_feb_flights
+
+jan_feb_flights  %>%
+  summarise_all(typeof) %>%
+  pivot_longer(everything(),names_to = "column", values_to = "type")
 ```
 
 ```{r}
 # which columns are integer
-"year , month , day , dep_time , sched_dep_time , arr_time , sched_arr_time , flight"
+jan_feb_flights <- flights %>%
+  
 
 # which columns are double
-"dep_delay , arr_delay , air_time , distance , hour , minute"
+
 
 # which columns are character
-"carrier , tailnum , origin , dest"
+
 
 ```
 
