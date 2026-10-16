@@ -36,6 +36,10 @@ Are there missing values?
 # explore the types of the columns in jan_feb_flights
 glimpse(jan_feb_flights)
 jan_feb_flights %>% select(where(is.integer)) %>% names()
+
+jan_feb_flights  %>%
+  summarise_all(typeof) %>%
+  pivot_longer(everything(),names_to = "column", values_to = "type")
 ```
 
 ```{r}
